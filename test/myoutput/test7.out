@@ -1,0 +1,143 @@
+;IR code
+;PUSH
+;PUSH
+;PUSH
+;PUSH
+;PUSH
+;JSR main
+;HALT
+;LABEL main
+;LINK 8
+;STOREF 0.0001 !T0
+;STOREF !T0 $-6
+;READF $-5
+;STOREF !T0 $-4
+;STOREI 0 !T1
+;STOREI !T1 $-1
+;STOREF 0.0 !T2
+;STOREF !T2 $-7
+;STOREI 0 !T3
+;STOREI !T3 $-2
+;LABEL label1
+;STOREI 1 !T4
+;EQ $-2 !T4 label3
+;STOREI 1 !T5
+;ADDI $-1 !T5 !T6
+;STOREI !T6 $-1
+;STOREF 0.5 !T7
+;DIVF $-5 $-4 !T8
+;ADDF $-4 !T8 !T9
+;MULTF !T7 !T9 !T10
+;STOREF !T10 $-3
+;SUBF $-4 $-3 !T11
+;STOREF !T11 $-7
+;STOREF 0.0 !T12
+;LE $-7 !T12 label4
+;GE $-7 $-6 label6
+;STOREI 1 !T13
+;STOREI !T13 $-2
+;JUMP label7
+;LABEL label6
+;LABEL label7
+;JUMP label5
+;LABEL label4
+;STOREF 0.0 !T14
+;SUBF !T14 $-6 !T15
+;LE $-7 !T15 label8
+;STOREI 1 !T16
+;STOREI !T16 $-2
+;JUMP label9
+;LABEL label8
+;LABEL label9
+;LABEL label5
+;STOREF !T16 $-4
+;LABEL label2
+;JUMP label1
+;LABEL label3
+;WRITEF $-4
+;WRITES space
+;WRITEI $-1
+;WRITES eol
+;UNLINK
+;RET
+var count
+var enough
+var newapprox
+var approx
+var num
+var tolerance
+var diff
+str eol "\n"
+str space " "
+push
+push
+push
+push
+push
+jsr labelmain
+sys halt
+label labelmain
+link 7
+move 0.0001 r0
+move r0 tolerance
+sys readr num
+move num r0
+move r0 approx
+move 0 r0
+move r0 count
+move 0.0 r0
+move r0 diff
+move 0 r0
+move r0 enough
+label label1
+move 1 r0
+cmpi enough r0
+jeq label3
+move 1 r0
+move count r1
+addi r0 r1
+move r1 count
+move 0.5 r0
+move num r1
+divr approx r1
+move approx r2
+addr r1 r2
+mulr r0 r2
+move r2 newapprox
+move approx r0
+subr newapprox r0
+move r0 diff
+move 0.0 r0
+cmpr diff r0
+jle label4
+move tolerance r0
+cmpr diff r0
+jge label6
+move 1 r0
+move r0 enough
+jmp label7
+label label6
+label label7
+jmp label5
+label label4
+move 0.0 r0
+subr tolerance r0
+cmpr diff r0
+jle label8
+move 1 r0
+move r0 enough
+jmp label9
+label label8
+label label9
+label label5
+move newapprox r0
+move r0 approx
+label label2
+jmp label1
+label label3
+sys writer approx
+sys writes space
+sys writei count
+sys writes eol
+unlnk
+ret

@@ -1,0 +1,4 @@
+error on line 97 : illegal operand type
+error on line 118 : both  operands are memory refs
+error on line 123 identifier space not defined
+error on line 125 identifier eol not defined

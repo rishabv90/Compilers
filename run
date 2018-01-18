@@ -1,0 +1,110 @@
+#!/bin/sh
+clear
+make compiler
+
+# Testing localli1y
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test1.micro > test/myoutput/test1.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test2.micro > test/myoutput/test2.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test3.micro > test/myoutput/test3.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test4.micro > test/myoutput/test4.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test5.micro > test/myoutput/test5.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test6.micro > test/myoutput/test6.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test7.micro > test/myoutput/test7.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test8.micro > test/myoutput/test8.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test9.micro > test/myoutput/test9.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test10.micro > test/myoutput/test10.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test11.micro > test/myoutput/test11.out
+java -cp classes:Lib/antlr-4.7.jar Micro test/input/test12.micro > test/myoutput/test12.out
+
+./tiny4 test/myoutput/test1.out < test/input/test1.input >> tiny4reg/test1.out
+echo -----correct-----
+# ./tiny test/output/test1.out < test/input/test1.input >> tiny4reg/test1.out
+./tiny4 test/myoutput/test2.out < test/input/test2.input >> tiny4reg/test2.out
+echo -----correct-----
+# ./tiny test/output/test2.out < test/input/test2.input >> tiny4reg/test2.out
+./tiny4 test/myoutput/test3.out < test/input/test3.input >> tiny4reg/test3.out
+echo -----correct-----
+# ./tiny test/output/test3.out < test/input/test3.input >> tiny4reg/test3.out
+./tiny4 test/myoutput/test4.out < test/input/test4.input >> tiny4reg/test4.out
+echo -----correct-----
+# ./tiny test/output/test4.out < test/input/test4.input >> tiny4reg/test4.out
+./tiny4 test/myoutput/test5.out < test/input/test5.input >> tiny4reg/test5.out
+echo -----correct-----
+# ./tiny test/output/test5.out < test/input/test5.input >> tiny4reg/test5.out
+./tiny4 test/myoutput/test6.out >> tiny4reg/test6.out
+echo -----correct-----
+# ./tiny test/output/test6.out >> tiny4reg/test6.out
+./tiny4 test/myoutput/test7.out < test/input/test7.input >> tiny4reg/test7.out
+echo -----correct-----
+# ./tiny test/output/test7.out < test/input/test7.input >> tiny4reg/test7.out
+./tiny4 test/myoutput/test8.out < test/input/test8.input >> tiny4reg/test8.out
+echo -----correct-----
+# ./tiny test/output/test8.out < test/input/test8.input >> tiny4reg/test8.out
+./tiny4 test/myoutput/test9.out >> tiny4reg/test9.out
+echo -----correct-----
+# ./tiny test/output/test9.out >> tiny4reg/test9.out
+./tiny4 test/myoutput/test10.out < test/input/test10.input >> tiny4reg/test10.out
+echo -----correct-----
+# ./tiny test/output/test10.out < test/input/test10.input >> tiny4reg/test10.out
+./tiny4 test/myoutput/test11.out >> tiny4reg/test11.out
+echo -----correct-----
+# ./tiny test/output/test11.out >> tiny4reg/test11.out
+./tiny4 test/myoutput/test12.out >> tiny4reg/test12.out
+echo -----correct-----
+# ./tiny test/output/test12.out >> tiny4reg/test12.out
+
+
+# echo --------------------MY factorial2------------------- > tiny4reg/tiny_factorial2.out
+# ./tiny4 test/myoutput/factorial2.out < test/input/factorial2.input >> tiny4reg/tiny_factorial2.out
+# echo -----------------CORRECT factorial2----------------- >> tiny4reg/tiny_factorial2.out
+# ./tiny test/output/factorial2.out < test/input/factorial2.input >> tiny4reg/tiny_factorial2.out
+# echo --------------------MY fibonacci2------------------- > tiny4reg/tiny_fibonacci2.out
+# ./tiny4 test/myoutput/fibonacci2.out < test/input/fibonacci2.input >> tiny4reg/tiny_fibonacci2.out
+# echo -----------------CORRECT fibonacci2----------------- >> tiny4reg/tiny_fibonacci2.out
+# ./tiny test/output/fibonacci2.out < test/input/fibonacci2.input >> tiny4reg/tiny_fibonacci2.out
+# echo --------------------MY fma------------------- > tiny4reg/tiny_fma.out
+# ./tiny4 test/myoutput/fma.out < test/input/fma.input >> tiny4reg/tiny_fma.out
+# echo -----------------CORRECT fma----------------- >> tiny4reg/tiny_fma.out
+# ./tiny test/output/fma.out < test/input/fma.input >> tiny4reg/tiny_fma.out
+
+
+
+# echo --------------------MY test_for------------------- > tiny4reg/tiny_test_for.out
+# ./tiny4 test/myoutput/test_for.out < test/input/test_for.input >> tiny4reg/tiny_test_for.out
+# echo -----------------CORRECT test_for----------------- >> tiny4reg/tiny_test_for.out
+# ./tiny test/output/test_for.out < test/input/test_for.input >> tiny4reg/tiny_test_for.out
+# echo --------------------MY test_adv------------------- > tiny4reg/tiny_test_adv.out
+# ./tiny4 test/myoutput/test_adv.out < test/input/test_adv.input >> tiny4reg/tiny_test_adv.out
+# echo -----------------CORRECT test_adv----------------- >> tiny4reg/tiny_test_adv.out
+# ./tiny test/output/test_adv.out < test/input/test_adv.input >> tiny4reg/tiny_test_adv.out
+# echo --------------------MY test_if------------------- > tiny4reg/tiny_test_if.out
+# ./tiny4 test/myoutput/test_if.out < test/input/test_if.input >> tiny4reg/tiny_test_if.out
+# echo -----------------CORRECT test_if----------------- >> tiny4reg/tiny_test_if.out
+# ./tiny test/output/test_if.out < test/input/test_if.input >> tiny4reg/tiny_test_if.out
+# echo --------------------MY step4_testcase2------------------- > tiny4reg/tiny_step4_testcase2.out
+# ./tiny4 test/myoutput/step4_testcase2.out < test/input/step4_testcase2.input >> tiny4reg/tiny_step4_testcase2.out
+# echo -----------------CORRECT step4_testcase2----------------- >> tiny4reg/tiny_step4_testcase2.out
+# ./tiny test/output/step4_testcase2.out < test/input/step4_testcase2.input >> tiny4reg/tiny_step4_testcase2.out
+# echo --------------------MY step4_testcase------------------- > tiny4reg/tiny_step4_testcase.out
+# ./tiny4 test/myoutput/step4_testcase.out >> tiny4reg/tiny_step4_testcase.out
+# echo -----------------CORRECT step4_testcase----------------- >> tiny4reg/tiny_step4_testcase.out
+# ./tiny test/output/step4_testcase.out  >> tiny4reg/tiny_step4_testcase.out
+
+
+
+# echo --------------------MY test_mult------------------- > tiny4reg/tiny_test_mult.out
+# ./tiny4 test/myoutput/test_mult.out >> tiny4reg/tiny_test_mult.out
+# echo -----------------CORRECT test_mult----------------- >> tiny4reg/tiny_test_mult.out
+# ./tiny test/output/test_mult.out >> tiny4reg/tiny_test_mult.out
+# echo --------------------MY test_expr------------------- > tiny4reg/tiny_step4_testcase.out
+# ./tiny4 test/myoutput/test_expr.out>> tiny4reg/tiny_test_expr.out
+# echo -----------------CORRECT test_expr----------------- >> tiny4reg/tiny_test_expr.out
+# ./tiny test/output/test_expr.out >> tiny4reg/tiny_test_expr.out
+# echo --------------------MY test_complex------------------- > tiny4reg/tiny_test_complex.out
+# ./tiny4 test/myoutput/test_complex.out >> tiny4reg/tiny_test_complex.out
+# echo -----------------CORRECT test_complex----------------- >> tiny4reg/tiny_test_complex.out
+# ./tiny test/output/test_complex.out >> tiny4reg/tiny_test_complex.out
+# echo --------------------MY test_combination------------------- > tiny4reg/tiny_step4_testcase.out
+# ./tiny4 test/myoutput/test_combination.out >> tiny4reg/tiny_test_combination.out
+# echo -----------------CORRECT test_combination----------------- >> tiny4reg/tiny_step4_testcase.out
+# ./tiny test/output/test_combination.out >> tiny4reg/tiny_test_combination.out

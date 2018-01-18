@@ -1,0 +1,5 @@
+#!/bin/sh
+
+make compiler
+#Submission
+java -cp classes/:$CLASSPATH:/  Micro $1 > $2
